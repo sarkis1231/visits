@@ -6,7 +6,9 @@ const PORT = 8081
 const app = express();
 
 // setup redis client 
-const client = redis.createClient();
+const client = redis.createClient({
+    host: 'redis-server'
+});
 client.set("visits", 0);
 
 app.get("/", (_, res) => {
