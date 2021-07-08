@@ -4,6 +4,7 @@ const redis = require("redis");
 
 const PORT = 8081
 const app = express();
+const process = require("process")
 
 // setup redis client 
 const client = redis.createClient({
@@ -13,6 +14,7 @@ const client = redis.createClient({
 client.set("visits", 0);
 
 app.get("/", (_, res) => {
+    process.exit(0)
     client.get("visits", (err, visits) => {
         res.send(`Number of visits is ${visits}`);
         client.set("visits", +visits + 1);
