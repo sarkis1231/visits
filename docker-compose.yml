@@ -3,6 +3,6 @@ services:
   redis-server:
     image: 'redis:6.2-alpine3.14'
   node-app:
-    build: . 
+    image: sarkis1231/visits:1.0.1  
     ports: 
       - "4001:8081"     
